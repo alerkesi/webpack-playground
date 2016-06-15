@@ -6,14 +6,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/index'
+        app: ['./src/index']
     },
     output: {
         path: path.resolve('./release'),
         filename: 'app.js'
     },
     resolve: {
-        extensions: ['', '.ts', '.js', '.tsx', '.jsx']
+        extensions: ['', '.ts', '.js', '.tsx', '.jsx'],
+        root: path.resolve('./src')
     },
     module: {
         loaders: [
@@ -21,9 +22,9 @@ module.exports = {
                 test: /\.(j|t)sx?$/,
                 loaders: [
                     'babel-loader' +
-                        '?cacheDirectory=babel_cache' +
+                        '?cacheDirectory=babel_cache'
+                        //этот пресет добавляет двойной 'use-strict'
                         // '&presets[]=es2015' +
-                        '&presets[]=react'
                 ]
             },
             // {
@@ -36,7 +37,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-
+            template: './src/index.html'
         }),
         new webpack.DefinePlugin({
             process: {

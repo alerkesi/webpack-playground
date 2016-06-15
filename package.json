@@ -15,7 +15,11 @@
     "html-webpack-plugin": "2.20.0",
     "ts-loader": "0.8.2",
     "typescript": "1.8.10",
-    "webpack": "1.13.1"
+    "webpack": "2.1.0-beta.13"
+  },
+  "optionalDependencies": {
+    "webpack-dev-server": "1.14.1"
+
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
